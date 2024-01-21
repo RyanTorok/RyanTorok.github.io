@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Tutoring by Ryan Torok</title>
+    <link rel="stylesheet" href="/common.css">
+    <link rel="stylesheet" href="/tutor/index.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/common.js"></script>
+    <script type="text/javascript" src="/tutor/index.js"></script>
+  </head>
+  <body>
+    <div id="background">
+    <div id="titleBarWrapper">
+      <div id="titleBar" class="asRow">
+        <div>
+          <p id="title">Tutoring</p>
+		  <p class="subtitle" id="st1">Tough assignment? Exam coming up?</p>
+		  <p class="subtitle" id="st2">Want to get ahead? I'm here to help.</p>
+        </div>
+        <div id="barMenus" class="asRow">
+          <p class="barMenu">Who I Serve</p>
+          <p class="barMenu">About Me</p>
+          <p class="barMenu">What I Teach</p>
+          <p class="barMenu">Teaching Philosophy</p>
+          <p class="barMenu">Rates</p>
+          <p class="barMenu">Schedule</p>
+          <p class="barMenu">Contact</p>
+          <p class="barMenu">About this Website</p>
+        </div>
+      </div>
+      <div id="titleBarBorder">
+        <div id="scrollBar"></div>
+      </div>
+    </div>
+
+    <div class="widget" id="intro">
+      <img class="left_img" src="/tutor/sec.jpg"/>
+      <p id="js-warning">This page requires JavaScript to operate. Please enable
+    JavaScript and refresh the page.</p>
+    <p>I am excited to offer evening and weekend Computer Science tutoring at
+    Harvard University, MIT, Northeastern University, Boston College, and Boston
+    University. I offer in-person sessions one or two days per week at each
+    university, and remote sessions are available 7 days a week to all
+      university students enrolled in Computer Science classes.<br>
+      <br>
+      <a id="book-button" >Book a Session</a>
+      </p>
+
+    </div>
+    <div class="widget" id="about-me">
+      <img class="right_img" src="/portrait.JPG"/>
+      <p>
+        <b>About Me</b><br>
+        
+        <br>
+    Hi! My name is Ryan Torok, and I work for zeroRISC, a startup company in
+    Boston developing a cloud security service for the OpenTitan project. I hold
+    a Master's degree in Computer Science from Princeton University and a
+    Bachelor's degree in Computer Science from the University of Texas. I am
+    interested in all things related to computer security and systems. In 2023,
+    I gave <a href="https://www.youtube.com/watch?v=RPZMdLQu1tw">this talk</a>
+    at IEEE Security Conference about my research paper I authored
+    with <a href="https://amitlevy.com">Amit Levy</a> at Princeton about a novel
+    defense against privacy attacks in web browsers. When I'm not working on
+    CS-related business, I enjoy playing the cello, composing music, running,
+    and hiking.
+      <br>
+      <br>
+      You can learn more about me at <a href="/">my homepage</a>.
+    </p>
+
+    </div>
+
+    <div class="widget" id="scope">
+      <img class="left_img" src="/tutor/ccds_cropped.jpg"/>
+      <div id="scope-block">
+      <p>
+        <b>What do I teach?</b><br>
+        <br>
+      My specialty is in Computer Security and Computer Systems, including
+      Operating Systems, Distributed Systems, and Networking. However, I have
+      ample proficiency to teach in nearly all areas of Computer Science,
+        including:
+</p>
+      <table>
+        <tr>
+<td>Introductory Programming</td>
+<td>Data Structures and Algorithms</td>
+</tr><tr>
+<td>Discrete Mathematics</td>
+<td>Differential and Integral Calculus</td>
+</tr><tr>
+<td>Matrices and Linear Algebra</td>
+<td>Probability and Statistics</td>
+</tr><tr>
+<td>Systems Programming in Unix</td>
+<td>Computer Architecture</td>
+</tr><tr>
+<td>Databases and Storage Technologies</td>
+<td>Operating Systems</td>
+</tr><tr>
+<td>Theoretical Algorithms</td>
+<td>Computer and Wireless Networking</td>
+</tr><tr>
+<td>Distributed Systems</td>
+<td>Computer and Network Security</td>
+</tr><tr>
+<td>Introductory Machine Learning</td>
+<td>Blockchains and Decentralization</td>
+</tr>
+      </table>
+      </div>
+
+    </div>
+    <div class="widget" id="philosophy">
+      <img class="right_img" src="/tutor/beacon_cropped.jpg"/>
+      <p>
+        <b>What is my teaching philosophy?</b><br>
+        <br>
+        Coding is intimidating. College is intimidating. Life is
+        intimidating. Asking for help shouldn't be.
+        <br>
+        <br>
+        As a self-proclaimed veteran of five TA roles at Princeton University
+        and the University of Texas, I have always found my students have
+        learned best when they felt the freedom to ask questions, get stuck, ask me
+        to discuss their ideas about how to get un-stuck, and then use the
+        process through which we come up with a solution as a learning tool to
+        solve future problems.
+        <br>
+        <br>
+        I seldom view finishing an assignment or passing an exam as an end goal
+        for my students. When I walk a student through the solution to a
+        problem, I use the problem as a tool demonstrate the <i>why</i> behind
+        the solution. Why does a particular algorithm work? Why does a block of
+        code behave the way it does? Why did a particular issue with a piece of
+        code break the solution? By discussing these types of questions during
+        one-on-one sessions, I observe that students are much less likely to
+        repeat mistakes, and much more likely to be able to reproduce the
+        solutions to problems, apply them to other problems, and explain them to
+        other students in simple words.
+      </p>
+
+      </div>
+    <div class="widget" id="rates">
+      <img class="left_img" src="/tutor/wvh.jpg"/>
+      <p>      
+        <b>Rates</b><br>
+        <br>
+        Individuals: $35 per 60 minute session
+        <br>
+        <br>
+        Groups of 2 or more: $25 per person per 60 minute session
+        <br>
+        <br>
+        Payments are accepted through Zelle (tutor@ryantorok.net), which is offered by
+        most online bank accounts. Students with in-person sessions may also pay by cash
+        or check.
+        </p>
+
+    </div>
+    <div class="widget fullwidth" id="schedule">
+      <p>
+        <b>Sign up by choosing a time slot below!</b><br>
+        <br>
+  Choose a remote session any day of the week, or an in-person session on a day
+  I visit your university. All times are in US Eastern Time (UTC-5).
+  I accept registrations up to four weeks in advance. A new week becomes
+  available at midnight Eastern Time each Saturday night.<br>
+  <br>
+  Already have a registration?
+        <a href="/tutor/registration?existing=true">View or edit it here.</a>
+      
+</p>
+<div id="weeks">
+  <div id="backward">← Previous Week</div>
+  <div id="refresh">Refresh ↺</div>
+  <div id="forward">Next Week →</div>
+</div>
+<table id="schedule-table">
+  <thead>
+      <tr id="days">
+        <td class="day">Sunday, October 1</td>
+        <td class="day">Monday, October 2</td>
+        <td class="day">Tuesday, October 3</td>
+        <td class="day">Wednesday, October 4</td>
+        <td class="day">Thursday, October 5</td>
+        <td class="day">Friday, October 6</td>
+        <td class="day">Saturday, October 7</td>
+      </tr>
+      <tr id="schools">
+        <td>
+          <p>Boston University</p>
+        </td>
+        <td>
+          <p>Harvard University</p>
+        </td>
+        <td>
+          <p>MIT</p>
+        </td>
+        <td>
+          <p>Northeastern University</p>
+        </td>
+        <td>
+          <p>Harvard University</p>
+        </td>
+        <td>
+          <p>MIT</p>
+        </td>
+        <td>
+          <p>Boston College</p>
+        </td>
+      </tr>
+      <tr id="buildings">
+        <td>
+
+          <p class="building">Center for Computing and Data Sciences</p>
+          </td>
+        <td>
+          <p class="building">Science and Engineering Complex</p>
+          </td>
+        <td>
+          <p class="building">Stata Center</p>
+          </td>
+        <td>
+          <p class="building">West Village H</p>
+          </td>
+        <td>
+          <p class="building">Science and Engineering Complex</p>
+          </td>
+        <td>
+          <p class="building">Stata Center</p>
+          </td>
+        <td>
+          <p class="building">245 Beacon Street</p>
+          </td>
+            
+        </tr>
+  </thead>
+  <tbody id="schedule-table-body">
+      <tr class="schedule-row" id="session-1">
+        <td class="weekend" id="sunday-1">10:00 AM</td>
+        <td class="weekday" id="monday-1">4:00 PM</td>
+        <td class="weekday" id="tuesday-1">4:00 PM</td>
+        <td class="weekday" id="wednesday-1">4:00 PM</td>
+        <td class="weekday" id="thursday-1">4:00 PM</td>
+        <td class="weekday" id="friday-1">4:00 PM</td>
+        <td class="weekend" id="saturday-1">10:00 AM</td>
+      </tr>
+      <tr class="schedule-row" id="session-2">
+        <td class="weekend" id="sunday-2">11:00 AM</td>
+        <td class="weekday" id="monday-2">5:00 PM</td>
+        <td class="weekday" id="tuesday-2">5:00 PM</td>
+        <td class="weekday" id="wednesday-2">5:00 PM</td>
+        <td class="weekday" id="thursday-2">5:00 PM</td>
+        <td class="weekday" id="friday-2">5:00 PM</td>
+        <td class="weekend" id="saturday-2">11:00 AM</td>
+      </tr>
+      <tr class="schedule-row" id="session-3">
+        <td class="weekend" id="sunday-3">12:00 PM</td>
+        <td class="weekday" id="monday-3">6:00 PM</td>
+        <td class="weekday" id="tuesday-3">6:00 PM</td>
+        <td class="weekday" id="wednesday-3">6:00 PM</td>
+        <td class="weekday" id="thursday-3">6:00 PM</td>
+        <td class="weekday" id="friday-3">6:00 PM</td>
+        <td class="weekend" id="saturday-3">12:00 PM</td>
+      </tr>
+      <tr class="schedule-row" id="session-4">
+        <td class="weekend" id="sunday-4">1:00 PM</td>
+        <td class="weekday" id="monday-4">7:00 PM</td>
+        <td class="weekday" id="tuesday-4">7:00 PM</td>
+        <td class="weekday" id="wednesday-4">7:00 PM</td>
+        <td class="weekday" id="thursday-4">7:00 PM</td>
+        <td class="weekday" id="friday-4">7:00 PM</td>
+        <td class="weekend" id="saturday-4">1:00 PM</td>
+      </tr>
+      <tr class="schedule-row" id="session-5">
+        <td class="weekend" id="sunday-5">2:00 PM</td>
+        <td class="weekday" id="monday-5">8:00 PM</td>
+        <td class="weekday" id="tuesday-5">8:00 PM</td>
+        <td class="weekday" id="wednesday-5">8:00 PM</td>
+        <td class="weekday" id="thursday-5">8:00 PM</td>
+        <td class="weekday" id="friday-5">8:00 PM</td>
+        <td class="weekend" id="saturday-5">2:00 PM</td>
+      </tr>
+      <tr class="schedule-row" id="session-6">
+        <td class="weekend" id="sunday-6">3:00 PM</td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="weekend" id="saturday-6">3:00 PM</td>
+      </tr>
+      <tr class="schedule-row" id="session-7">
+        <td class="weekend" id="sunday-7">4:00 PM</td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="empty"></td>
+        <td class="weekend" id="saturday-7">4:00 PM</td>
+      </tr>
+      </tbody>
+      
+</table>
+<div id="alerts">
+</div>
+    </div>
+    <div class="widget" id="contact">
+      <img class="left_img" src="/tutor/stata_cropped.jpg"/>
+      <p>
+        <b>Contact</b><br>
+        <br>
+        If you have additional questions, feel free to send me an email! I'm quite
+        reponsive at <a href="mailto:tutor@ryantorok.net">tutor@ryantorok.net</a>.
+      </p>
+
+    </div>
+    <div class="widget fullwidth" id="about-website">
+      <p>
+        <b>About this website</b><br>
+        <br>
+        I wrote this website entirely myself, using HTML, CSS, and JavaScript
+        for the frontend browser application, and Rust for the backend server, using the Rocket and
+        Diesel libraries and PostgreSQL for the database.
+        <br>
+        <br>
+        Yes, I could have used an existing online scheduling app like Calendly
+        or Doodle, but I had several reasons for not doing so. First,
+        these services use a freemium model that offers limited
+        functionality in the base version and requires upgrading to a commercial
+        licence to use the full version. By writing the server myself, I can
+        ensure that I implement all the functionality I need, and if I ever
+        outgrow it, I can upgrade whenever and however I want.
+        <br>
+        <br>
+        A second reason is to set a good example when it comes to privacy. An
+        alarming number of websites include invisible HTML tags served by
+        Google, Meta, and other companies that allow them to track the pages you
+        visit. You can verify this yourself by installing the NoScript extension
+        in Firefox (which I highly recommend, by the way). You'll find nothing
+        of the sort running on my website. Web tracking aside, I decided early
+        on that using a spreadsheet on Office 365 or Google Sheets was not a
+        viable method for scheduling, because your name and contact information
+        would be visible to the public internet. When and whether you schedule
+        tutoring sessions should be no one's business but yours and mine, and my
+        server implementation allows me to uphold confidentiality.
+        <br>
+        <br>
+        The third, and perhaps most important reason, was to learn. Though I
+        have been proficient in Rust for several years, I had not used either
+        Rocket or Diesel before creating this website, and I decided the best
+        way to familiarize myself with both libraries was to write a server with
+        them. Often, the best way to learn a programming language, framework, or
+        library is to use it.
+      </p>
+       <p xmlns:cc="http://creativecommons.org/ns#"
+       xmlns:dct="http://purl.org/dc/terms/">Unless indicated
+       otherwise, all content hosted on <a href="/">ryantorok.net</a> is licensed
+       under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
+       target="_blank" rel="license noopener noreferrer"
+                style="display:inline-block;">CC BY-SA 4.0</a>.<br>
+         <a href="/privacy">Privacy Policy</a><br><br>
+       </p>       
+    </div>
+    </div>
+  </body>
+</html>

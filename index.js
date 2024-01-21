@@ -1,7 +1,7 @@
 let loginState = 0;
 let loginBlock;
-let init = true;
 $(document).ready(function () {
+    console.log($("#title").css("font-size"));
 
     // Alt text switches
 
@@ -115,91 +115,5 @@ $(document).ready(function () {
         $(".cib_alt").css("display", "none");
         $("#cib_sections").css("display", "");
     });
-    
-let regions = [
-	document.getElementById("general"),
-	document.getElementById("industry"),
-	document.getElementById("academic"),
-    document.getElementById("teaching"),
-	document.getElementById("misc")
-];
-
-let headerHeight = $("#titleBarWrapper").height();
-let heights = [];
-for (let i = 0; i < regions.length; i++) {
-  heights.push(regions[i].offsetTop - headerHeight);
-}
-
-var scrollIndex = 0;
-var detectScroll = true;
-var autoView = true;
-var init = true;
-
-var handleRegionChange = function (index, me) {
-	detectScroll = false;
-	scrollIndex = index;
-	if (autoView) {
-        if (index === regions.length - 1) {
-            window.scrollTo(0, document.body.scrollHeight);
-        } else {
-		    regions[scrollIndex].scrollIntoView();
-		    //need to scroll enough so the header doesn't block us
-		    scrollBy(0, headerHeight * -1);
-        }
-	} else {
-		autoView = true;
-	}
-	let time = 400;
-	if (init) {
-		time = 0; 
-	}
-	$( "#scrollBar" ).animate({
-		left: me.offset().left,
-		width: me.width()
-	}, time, function() {
-		// Animation complete.
-		init = false;
-	});
-};
-
-    $(".barMenu").click(function() {
-    	const me = $(this);
-	    let index = $(this).index();
-	    handleRegionChange(index, me);
-    });
-
-	$(window).scroll(function() {
-		if (detectScroll === false) {
-			detectScroll = true;
-			return;
-		}
-		let position = document.body.scrollTop;
-		var goToIndex = 0;
-		for (let i = 1; i < heights.length; i++) {
-			if (position > heights[i]) {
-				goToIndex++;
-			}
-		}
-        // If we hit the bottom, always move to the last bar menu, even if its
-        // top doesn't reach the top of the window.
-        if ((window.innerHeight + document.body.scrollTop) >= $(document).height())
-		{
-            goToIndex = heights.length - 1;
-        }
-		if (scrollIndex !== goToIndex) {
-			autoView = false;
-			$(".barmenu").eq(goToIndex).click();
-		}
-	});
-    let url = new URL(window.location);
-    let scroll = url.searchParams.get("scroll");
-    if (scroll !== undefined && scroll !== null)
-        $("#barMenus").children().eq(scroll).click();
-
-    init = false;
-    $(".barmenu").eq(0).click();
-
-    
-
 });
 

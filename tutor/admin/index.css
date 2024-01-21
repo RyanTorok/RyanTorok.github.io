@@ -1,0 +1,107 @@
+@font-face {font-family: Laksaman;src:url(/Laksaman.ttf);}
+
+body {
+    overflow-x: hidden;
+    background: #202020;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
+#calendar {
+    margin-top: 2rem;
+}
+
+#login, .status, #details {
+    margin-left: 1.5rem;
+}
+
+#datetime, #password-header {
+    display: inline-block;
+    font-family: Laksaman, sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#password-input, .amount {
+    display: inline-block;
+    font-family: monospace;
+    margin-right: 0.3rem;
+}
+
+#password-input {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-left: 0.3rem;
+}
+
+.amount, #reason-field {
+    font-size: 1.2rem;
+}
+
+.button {
+    display: inline-block;
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.button:hover {
+    background: #404040;
+}
+
+#password-submit {
+    margin-left: 1rem;
+}
+
+p, label {
+    font-family: Laksaman, Sans-Serif;
+	font-size: 1.2rem;
+	color: white;
+    display: inline-block;
+    max-width: min(80%, 60em);
+}
+
+p, label:not(.amount-label) {
+    margin-right: 0.5rem;
+}
+
+.paid {
+    margin-left: 1rem;
+    margin-right: 1rem;    
+}
+
+.pay-widget {
+    display: inline-block;
+}
+
+.amount {
+    margin-right: 0;
+}
+
+#days {
+    margin-top: 2rem;
+}
+
+.day {
+    font-family: Laksaman, Sans-Serif;
+	font-size: 1.2rem;
+	color: white;
+}
+
+.occupied:hover {
+    background: #bc5454;
+    cursor: pointer;
+}
+
+.elapsed:hover {
+    background: #888888;
+    cursor: pointer;
+}
+
+.unavailable:hover {
+    background: #727272;
+    cursor: pointer;
+}

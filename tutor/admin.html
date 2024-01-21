@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <title>Tutoring by Ryan Torok</title>
+    <link rel="stylesheet" href="/common.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/common.js"></script>
+    <script type="text/javascript" src="/tutor/index.js"></script>    
+  </head>
+  <body>
+    <div id="weeks">
+      <div id="backward">← Previous Week</div>
+      <div id="refresh">Refresh ↺</div>
+      <div id="forward">Next Week →</div>
+    </div>
+    <table id="schedule-table">
+      <thead>
+        <tr id="days">
+          <td class="day">Sunday, October 1</td>
+          <td class="day">Monday, October 2</td>
+          <td class="day">Tuesday, October 3</td>
+          <td class="day">Wednesday, October 4</td>
+          <td class="day">Thursday, October 5</td>
+          <td class="day">Friday, October 6</td>
+          <td class="day">Saturday, October 7</td>
+        </tr>
+        <tr id="schools">
+          <td>
+            <p>Boston University</p>
+          </td>
+          <td>
+            <p>Harvard University</p>
+          </td>
+          <td>
+            <p>MIT</p>
+          </td>
+          <td>
+            <p>Northeastern University</p>
+          </td>
+          <td>
+            <p>Harvard University</p>
+          </td>
+          <td>
+            <p>MIT</p>
+          </td>
+          <td>
+            Boston College
+          </td>
+        </tr>
+        <tr id="buildings">
+          <td>
+
+            <p class="building">Center for Computing and Data Sciences</p>
+          </td>
+          <td>
+            <p class="building">Science and Engineering Complex</p>
+          </td>
+          <td>
+            <p class="building">Stata Center</p>
+          </td>
+          <td>
+            <p class="building">West Village H</p>
+          </td>
+          <td>
+            <p class="building">Science and Engineering Complex</p>
+          </td>
+          <td>
+            <p class="building">Stata Center</p>
+          </td>
+          <td>
+            <p class="building">245 Beacon Street</p>
+          </td>
+          
+        </tr>
+      </thead>
+      <tbody id="schedule-table-body">
+        <tr class="schedule-row" id="session-1">
+          <td class="weekend" id="sunday-1">10:00 AM</td>
+          <td class="weekday" id="monday-1">4:00 PM</td>
+          <td class="weekday" id="tuesday-1">4:00 PM</td>
+          <td class="weekday" id="wednesday-1">4:00 PM</td>
+          <td class="weekday" id="thursday-1">4:00 PM</td>
+          <td class="weekday" id="friday-1">4:00 PM</td>
+          <td class="weekend" id="saturday-1">10:00 AM</td>
+        </tr>
+        <tr class="schedule-row" id="session-2">
+          <td class="weekend" id="sunday-2">11:00 AM</td>
+          <td class="weekday" id="monday-2">5:00 PM</td>
+          <td class="weekday" id="tuesday-2">5:00 PM</td>
+          <td class="weekday" id="wednesday-2">5:00 PM</td>
+          <td class="weekday" id="thursday-2">5:00 PM</td>
+          <td class="weekday" id="friday-2">5:00 PM</td>
+          <td class="weekend" id="saturday-2">11:00 AM</td>
+        </tr>
+        <tr class="schedule-row" id="session-3">
+          <td class="weekend" id="sunday-3">12:00 PM</td>
+          <td class="weekday" id="monday-3">6:00 PM</td>
+          <td class="weekday" id="tuesday-3">6:00 PM</td>
+          <td class="weekday" id="wednesday-3">6:00 PM</td>
+          <td class="weekday" id="thursday-3">6:00 PM</td>
+          <td class="weekday" id="friday-3">6:00 PM</td>
+          <td class="weekend" id="saturday-3">12:00 PM</td>
+        </tr>
+        <tr class="schedule-row" id="session-4">
+          <td class="weekend" id="sunday-4">1:00 PM</td>
+          <td class="weekday" id="monday-4">7:00 PM</td>
+          <td class="weekday" id="tuesday-4">7:00 PM</td>
+          <td class="weekday" id="wednesday-4">7:00 PM</td>
+          <td class="weekday" id="thursday-4">7:00 PM</td>
+          <td class="weekday" id="friday-4">7:00 PM</td>
+          <td class="weekend" id="saturday-4">1:00 PM</td>
+        </tr>
+        <tr class="schedule-row" id="session-5">
+          <td class="weekend" id="sunday-5">2:00 PM</td>
+          <td class="weekday" id="monday-5">8:00 PM</td>
+          <td class="weekday" id="tuesday-5">8:00 PM</td>
+          <td class="weekday" id="wednesday-5">8:00 PM</td>
+          <td class="weekday" id="thursday-5">8:00 PM</td>
+          <td class="weekday" id="friday-5">8:00 PM</td>
+          <td class="weekend" id="saturday-5">2:00 PM</td>
+        </tr>
+        <tr class="schedule-row" id="session-6">
+          <td class="weekend" id="sunday-6">3:00 PM</td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="weekend" id="saturday-6">3:00 PM</td>
+        </tr>
+        <tr class="schedule-row" id="session-7">
+          <td class="weekend" id="sunday-7">4:00 PM</td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="empty"></td>
+          <td class="weekend" id="saturday-7">4:00 PM</td>
+        </tr>
+      </tbody>
+      
+    </table>
+  </body>
+</html>

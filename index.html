@@ -1,11 +1,16 @@
+<!DOCTYPE html>
 <html>
 <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
     <meta content="utf-8" http-equiv="encoding">
     <title>Ryan Torok</title>
+    <link rel="stylesheet" href="common.css">
     <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="common.js"></script>
     <script type="text/javascript" src="index.js"></script>
 </head>
   <body>
@@ -14,8 +19,8 @@
         <div id="titleBar" class="asRow">
             <div>
                 <p id="title">ryan torok</p>
-		<p class="subtitle" id="st1">Hacker, Computer Enthusiast, Cellist,</p>
-		<p class="subtitle" id="st2">Music Composer, and All-Around Nerd!</p>
+		        <p class="subtitle" id="st1">Hacker, Computer Enthusiast, Cellist,</p>
+		        <p class="subtitle" id="st2">Music Composer, and All-Around Nerd!</p>
             </div>
             <div id="barMenus" class="asRow">
                 <p class="barMenu">About Me</p>
@@ -23,6 +28,7 @@
                 <p class="barMenu">Academic Work</p>
                 <p class="barMenu">Teaching</p>
                 <p class="barMenu">Miscellany</p>
+                <p class="barMenu">Legal</p>
             </div>
         </div>
         <div id="titleBarBorder">
@@ -30,40 +36,45 @@
         </div>
     </div>
     <div id="mainBody">
-	<div class='widget' id="general">
-	  <p id="general_text">
-        
+	  <div class='widget' id="general">
+        <img class="right_img" src="portrait.JPG"/>
+	    <p id="general_text">
 			Hi! My name is Ryan Torok, and I am a software systems engineer at
-			zeroRISC, a startup company in Boston working on the
-			<a href="https://opentitan.org"> OpenTitan</a> project. Over my
-			long-term career, I am interested in how to design and implement
-			secure and usable computer systems in both the commercial and
-			government sectors, leading to a future technology leadership role
-			where I can specialize in making the web a safe place for everyone.
-			<!-- I also offer Computer Science <a href="./tutor">tutoring</a> at
-			several universities in the Boston area. -->
+			<a href="https://zerorisc.com">zeroRISC</a>, a startup company in
+			Boston developing a cloud security service for the
+			<a href="https://opentitan.org"> OpenTitan</a> silicon root-of-trust
+			project. Over my long-term career, I am interested in how to design
+			and implement secure and usable computer systems in both the
+			commercial and government sectors, leading to a future technology
+			leadership role where I can specialize in making the web a safe
+			place for everyone.  I also offer Computer
+			Science <a href="tutor">tutoring</a> at several universities in the
+			Boston area.
             <br>
             <br>
                My previous affiliations include
-               the <a href="https://sns.cs.princeton.edu">SNS group</a>
+               the <a href="https://sns.cs.princeton.edu">SNS group</a> at
                Princeton University, where I was advised by
-               Prof. <a href="https://amitlevy.com">Amit Levy</a> and earned my
+               <a href="https://amitlevy.com">Amit Levy</a> and earned my
                Master's degree in 2023, the ISS and <i>Starliner</i> software
                teams at Boeing Space, and the
                <a href="https://www.cs.utexas.edu/turing-scholars">Turing
                Scholars</a> program at the University of Texas, where I was
-               advised by Profs. <a href="https://cs.utexas.edu/~lin">Calvin Lin</a>
+               advised by <a href="https://cs.utexas.edu/~lin">Calvin Lin</a>
                and <a href="https://cs.utexas.edu/~akanksha">Akanksha Jain</a>.
                <br>
                <br>
 
             <a href='cv.pdf'>CV</a> | <a href =
             "mailto:ryan@ryantorok.net">Mail</a>
+            | <a href="/rtorok-pgp.asc">PGP Key</a>
             | <a href="https://github.com/RyanTorok">GitHub</a>
+            | <a href="https://gitlab.com/RyanTorok">GitLab</a>                        
 		</p>
-		<img class="right_img" src="portrait.JPG"/>
+
 	</div>
-	<div class='widget' id="industry">
+	  <div class='widget' id="industry">
+        <img class="left_img" src="boeing_cropped.JPG"/>
 	  <p id="boeing_text">
         <b>Industry Work</b>
         <br>
@@ -91,7 +102,7 @@
 	  </p>
       <p id="boeing_alt_21">
         After finishing my undergraduate degree in December 2020, I returned to
-        Boeing for one final six-month stint, this time working on a few years'
+        Boeing for another six-month stint, this time working on a few years'
         worth of backlogged updates to the framework responsible for
         running the <i>Starliner</i>'s software qualification tests, whose
         results are formally documented and sent to NASA. The updates
@@ -130,9 +141,11 @@ mother duck who built a nest outside the building's entrance, whose eggs hatched
 into adorable ducklings during the last week of my
 internship. [<a id="boeing_19_back" >back</a>]
         </p>
-		<img class="left_img" src="boeing_cropped.JPG"/>
+
 	</div>
-    	<div class='widget' id="academic">
+      <div class='widget' id="academic">
+        
+        <img class="right_img" src="sandcastle.png"/>
 		<p id="academic_text"> 
           <b>Academic Work</b>
           <br>
@@ -187,16 +200,17 @@ internship. [<a id="boeing_19_back" >back</a>]
 			heavy pointer-chasing behavior. Then, I shifted my focus to
 			different strategies, and ended up discovering two worthwhile
 			techniques, a prefetcher which could extrapolate the neighbor
-			indices in the CSR graph memory layout (pictured), and an alternate
+			indices in the CSR graph memory layout, and an alternate
 			CSR-like layout which allows the graph to achieve better spacial
 			locality and suffer fewer cache misses. These two topics became the
 			subject of my senior honors thesis in December
 			2020. [<a id="csr_back" >back</a>]
         </p>
-		<img class="right_img" src="sandcastle.png"/>
+
 	</div>
-	<div class='widget' id="teaching">
-		<p id="ta_text" style="width: 55%">
+	  <div class='widget' id="teaching">
+        <img class="left_img" src="friend.png"/>
+		<p id="ta_text">
           <b>Teaching</b>
           <br>
             <br>
@@ -235,14 +249,15 @@ internship. [<a id="boeing_19_back" >back</a>]
             <br>
           
 		</p>
-        <p id="ta_text_alt" style="width: 55%">
+        <p id="ta_text_alt">
           Though I have served as a TA a total of five times across two
           universities, my first TA role at UT Austin is still the most special
           to me. The cohort of 26 students I taught represented the inaugural
-          class of UT's new joint Honors Computer Science and Business program,
-          and I was granted a chance to interact very closely with my students
-          as they braved a difficult course I remembered struggling with
-          as a freshman.
+          class of UT's new joint
+          <a href="https://csb.utexas.edu/">Honors Computer Science and
+          Business</a> program, and I was granted a chance to interact very
+          closely with my students as they braved a difficult course I
+          remembered struggling with as a freshman.
           <br>
           <br>
           My students frequently complimented my skill at clearly explaining
@@ -250,13 +265,11 @@ internship. [<a id="boeing_19_back" >back</a>]
 			logo contest for the course's final project to make the class
 			fun. It was particularly rewarding for me to see my former students
 			succeed in their future coursework, and I remain friends with
-			several of them even after graduating. Picutured here are 23 of my
-			26 former students, and had I known they were taking a group photo I
-			might have been tempted to photobomb. Thank you to my students for
+			several of them even after graduating. Thank you for
 			being some of the best people I have ever worked
 			with. [<a id="ta_back" >back</a>]
           </p>
-		<img class="left_img" style="width: 40%" src="students.JPG"/>
+
 	</div>
 	<div class='widget' id="misc">
 		<img id="misc_img" class="right_img" src="cello.JPG"/>
@@ -322,28 +335,27 @@ which accepts the top ten cellists across the North Houston area.
           You can listen to a few of my favorite compositions here:
           <br>
           <a href="https://drive.google.com/file/d/1azUwhdgmLfCPQzIGQOpb61qfABSnmm_R/view?usp=sharing">Christmas
-          in Boston</a> (2018) [<a href="cib.pdf">score</a>][<a class="cib_more">more</a>]
+          in Boston</a> (2018)<sup>1, 2</sup> [<a href="cib.pdf">score</a>][<a class="cib_more">more</a>]
           <br>
-          <a href="https://drive.google.com/file/d/1tvb_PYGv_0GeEEoJVgeA3fGy9nsa6HmF/view?usp=sharing">121 Thursdays</a> (2016)
+          <a href="https://drive.google.com/file/d/1tvb_PYGv_0GeEEoJVgeA3fGy9nsa6HmF/view?usp=sharing">121 Thursdays</a> (2016)<sup>3</sup>
           <br>
           <a href="https://drive.google.com/file/d/1DykZ_QezPnwLHUx0XwRo7hL6fv4vBGkJ/view?usp=sharing">Spirit
-            of Adventure</a> (2015)
+            of Adventure</a> (2015)<sup>4</sup>
           <br>
           <br>
           [<a class="misc_back">back</a>]
         </p>
         <div id="misc_alt_cib">
           <p><i>Christmas in Boston</i> is a holiday-themed full-orchestra piece
-          named not after the city as a whole, but after a small store in the
-          Faniuel Hall district, which is open all 12 months of the year and
-          serves as the world's greatest antidote to the summer heat if you
+          named not after the city as a whole, but after a small store in
+          Faniuel Hall marketplace, which is open all 12 months of the year and
+          provides an excellent antidote to the summer heat if you
           visit in July. As my first dive in to full orchestra composition, I
           felt the piece struck the perfect balance between original melodies
           and familiar classics to go down as a memorable holiday score. The
-          piece is organized into nine separate sections, which you can learn
-            more about by clicking below. 
-            <br>
-            [<a href="cib.pdf">Score</a>][<a href="https://drive.google.com/file/d/1azUwhdgmLfCPQzIGQOpb61qfABSnmm_R/view?usp=sharing">Recording</a>][<a class="misc_back">back</a>]
+          piece is organized into nine sections, which you can learn
+            about by clicking below.<br>
+            [<a href="cib.pdf">Score</a><sup>1</sup>][<a href="https://drive.google.com/file/d/1azUwhdgmLfCPQzIGQOpb61qfABSnmm_R/view?usp=sharing">Recording</a><sup>2</sup>][<a class="misc_back">back</a>]
     
           </p>
 
@@ -357,7 +369,8 @@ which accepts the top ten cellists across the North Houston area.
             [12:05]&nbsp;<a class="cib_sec" id="cib7">Northern Lights, a Winter Ambience</a><br>
             [14:04]&nbsp;<a class="cib_sec"id="cib8">The Light Reappears</a><br>
             [16:16]&nbsp;<a class="cib_sec" id="cib9">Holiday Spirit in the Air</a><br>
-            
+            <br>
+
             </p>
 
           <p class="cib_alt" id="alt_cib_1">
@@ -545,6 +558,34 @@ which accepts the top ten cellists across the North Houston area.
           justice. [<a class="misc_back">back</a>]
         </p>
 	</div>
-    </div>
+    	<div class='widget' id="legal">
+	      <p id="legal_text">
+            <b>Legal</b><br>
+            <br>
+               Unless indicated otherwise, all content hosted
+       on <a href="/">ryantorok.net</a> is licensed
+       under <a href="http://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1"
+       target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0</a>.<br>
+            <a href="/privacy">Privacy Policy</a><br><br>
+
+               <sup>1</sup>Christmas in Boston score and screenshot © 2018 Ryan Torok. All
+               rights reserved. Please contact me by email regarding performance
+               rights.<br>
+               <sup>2</sup>Christmas in Boston audio recording licenced under
+               the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1"
+               target="_blank" rel="license noopener noreferrer"
+                      style="display:inline-block;">CC BY-NC-ND 4.0</a>.<br>
+               <sup>3</sup>121 Thursdays audio recording licenced under
+               the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1"
+               target="_blank" rel="license noopener noreferrer"
+               style="display:inline-block;">CC BY-NC-ND 4.0</a>.<br>
+               <sup>4</sup>Spirit of Adventure audio recording licenced under
+               the <a href="http://creativecommons.org/licenses/by-nc-nd/4.0/?ref=chooser-v1"
+               target="_blank" rel="license noopener noreferrer"
+               style="display:inline-block;">CC BY-NC-ND 4.0</a>.<br>
+          </p>
+	    </div>
+            </div>
+
   </body>
 </html>

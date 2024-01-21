@@ -1,0 +1,180 @@
+@font-face {font-family: Laksaman;src:url(/Laksaman.ttf);}
+
+/* Source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader */
+.loader {
+  border: .3rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: .3rem solid #3498db;
+  width: 1rem;
+  height: 1rem;
+  -webkit-animation: spin 1s linear infinite; /* Safari */
+  animation: spin 1 linear infinite;
+  display: inline-block;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ... */
+
+a {
+    cursor: pointer;
+    color: lightblue;
+}
+
+a:hover {
+    color: blue;
+}
+
+#ac-loader {
+    margin-left: 2rem;
+}
+
+.ac-input {
+    font-family: monospace;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-right: 0.3rem;
+    width: 3.85rem;
+}
+
+#datetime, #ac-header {
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+#ac-fields {
+    color: white;
+}
+
+body {
+    overflow-x: hidden;
+    background: #202020;
+    width: 100vw;
+    height: 100vh;
+    margin: 0px;
+}
+
+p, label, select{
+    font-family: Laksaman, Sans-Serif;
+	font-size: 1.2rem;
+	color: white;
+    display: inline-block;
+    margin-right: 0.5rem;
+    max-width: min(80%, 60em);
+}
+
+p:not(#datetime, #cancel, #ac-submit, #back, .remove), label:not(.radio-label), select, .radio, textarea, #other, #languages, #ac-fields {
+    margin-left: 4rem;
+}
+
+#ac-submit {
+    margin-left: 1rem;
+}
+
+.radio {
+    cursor: pointer;
+}
+
+.radio-label {
+    margin-left: 0.5rem;
+    cursor: pointer;
+}
+
+#datetime, #back {
+    margin-left: 1.5rem;
+}
+
+#back {
+    margin-bottom: 3rem;
+}
+
+select {
+    margin-top: 0.3rem;
+    background: #505050;
+}
+
+input {
+    font-size: 1.5rem;
+}
+
+.credentials {
+    white-space: nowrap;
+}
+
+.credentials p {
+    display: inline-block;
+}
+
+.button {
+    border: 1px solid white;
+    cursor: pointer;
+    border-radius: 4px;
+    padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+.button:hover {
+    background: #404040;
+}
+
+.credentials {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.remove {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+textarea {
+    margin-top: 0.8rem;
+    font-family: Laksaman, Sans-Serif;
+    font-color: black;
+    width: min(80%, 55rem);
+    height: 10em;
+}
+
+#meeting-type {
+    margin-bottom: 0.3rem;
+}
+
+#languages-label {
+    margin-bottom: 0.3rem;
+}
+
+input {
+    font-family: Laksaman, Sans-Serif;
+    font-size: 1.2rem;
+}
+
+#other, #languages {
+    width: 20em;
+}
+
+#login .status {
+    margin-left: 0px;
+}
+
+.credentials label {
+    min-width: 7rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.confirmed {
+    margin-top: 0;
+    margin-left: 3rem;
+}
+
+.credentials {
+    margin-bottom: 2em;
+}

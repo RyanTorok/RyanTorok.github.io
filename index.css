@@ -1,155 +1,6 @@
-@font-face {font-family: Comfortaa;src:url(./Comfortaa-Regular.ttf);}
-@font-face {font-family: Laksaman;src:url(./Laksaman.ttf);}
-
-body {
-    margin: 0;
-}
-
-#background {
-    background: #303030;
-    width: 100%;
-    float: left;
-    margin: 0;
-    padding: 0;
-    right:0;
-    left: 0;
-    top: 0;
-    bottom: 0;
-}
-
-#titleBarWrapper {
-	position: fixed;
-	width: 100%;
-}
-
-#titleBar {
-    background: black;
-    margin-top: -2.5vw;
-    margin-left: 0;
-    margin-right: 0;
-    padding-top: .21vw;
-    padding-bottom: .21vw;
-}
-
-#title {
-    color: white;
-    margin-left: 1.04vw;
-    font-size: 2.6vw;
-    font-family: Comfortaa, sans-serif;
-    font-style: normal;
-}
-
-.subtitle {
-    color: white;
-    font-size: .86vw;
-    font-style: italic;
-    font-family: sans-serif;
-}
-
-#st1 {
-    padding-left: 1.04vw;
-    margin-top: -2.5vw;
-    margin-bottom: .416vw;
-}
-
-#st2 {
-    padding-left: 1.04vw;
-    margin-top: -.416vw;
-    margin-bottom: .416vw;
-}
-
-.asRow {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-#barMenus {
-    margin-top: 2.91vw;
-    margin-left: 8.32vw;
-}
-
-.barMenu {
-    color: white;
-    font-family: sans-serif;
-    font-size: 0.9vw;
-    padding-right: 2.5vw;
-    cursor: pointer;
-}
-
-.barMenu:hover {
-    text-decoration: underline;
-}
-
-#titleBarBorder {
-    background: #663366;
-    margin-left: 0;
-    margin-right: 0;
-    height: .416vw;
-}
-
-.brighterTitleBarBorder {
-    background: #884488;
-}
-
 #scrollBar {
-    background: #885588;
-    margin-right: 0;
-    height: .416vw;
-    width: 4.16vw;
-    left: 26vw;
-    position: absolute;
-}
-
-
-.italic {
-    font-style: italic;
-}
-
-.widget {
-	display: inline-block;
-    width: 100%
-}
-
-.widget_header {
-    text-decoration: underline;
-}
-
-.widget p {
-	width: 60%;
-	margin: 1.37vw;
-	display: inline-block;
-	font-family: Laksaman, Sans-Serif;
-	font-size: 1.15vw;
-	color: white;
-}
-
-.right_text {
-	text-align: right;
-}
-
-
-.widget img {
-	width: 37%;
-	display: inline-block;
-	top: 50%;
-}
-
-.widget p a {
-    cursor: pointer;
-    color: lightblue;
-}
-
-.widget p a:hover {
-    color: blue;
-}
-
-.right_img {
-	float: right;
-}
-
-.left_img {
-	float: left;
+    width: min(4.7rem, 12.53vw);
+    left: min(calc(20.625rem + 8vw), 63vw);
 }
 
 .misc_back {
@@ -158,7 +9,7 @@ body {
 
 #general {
 	background: #202020;
-	margin-top: 5.82vw;
+	margin-top: min(8.4rem, 22.43vw);
 }		
 
 #industry {
@@ -166,7 +17,7 @@ body {
 }		
 
 #teaching {
-	background: #bf5700;
+	background: #744249;
 }		
 
 #dcl {

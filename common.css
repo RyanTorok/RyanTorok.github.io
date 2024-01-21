@@ -1,0 +1,194 @@
+c@font-face {font-family: Comfortaa;src:url(/Comfortaa-Regular.ttf);}
+@font-face {font-family: Laksaman;src:url(/Laksaman.ttf);}
+
+body {
+    margin: 0;
+}
+
+#background {
+    background: #303030;
+    width: 100%;
+    float: left;
+    margin: 0;
+    padding: 0;
+    right:0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
+body {
+    overflow-x: scroll;
+}
+
+#titleBarWrapper {
+	position: fixed;
+	width: 100%;
+}
+
+#titleBar {
+    background: black;
+    margin-top: 0rem;
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: min(.269rem, 0.718vw);
+    padding-bottom: min(1.2rem, 3.2vw);
+    overflow-x: scroll;
+}
+
+#title {
+    color: white;
+    margin-left: min(1.33rem, 3.54vw);
+    font-size: min(3rem, 8vw);
+    font-family: Comfortaa, sans-serif;
+    font-style: normal;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    //padding-top: min(1rem, 2.67vw);
+
+}
+
+.subtitle {
+    color: white;
+    font-size: min(1rem, 2.67vw);
+    font-style: italic;
+    font-family: sans-serif;
+    white-space: nowrap;
+}
+
+#st1 {
+    padding-left: min(1.33rem, 3.54vw);
+    margin-top: min(0.3em, 0.8vw);
+    margin-bottom: min(0.3em, 0.8vw);
+}
+
+#st2 {
+    margin-left: min(1.33rem, 3.54vw);
+    margin-top: min(0.1em, .267vw);
+    margin-bottom: 0em;
+}
+
+.asRow {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+#barMenus {
+    margin-top: min(1.5em, 4vw);
+    margin-left: 8vw;
+}
+
+.barMenu {
+    color: white;
+    font-family: sans-serif;
+    font-size: min(1rem, 2.67vw);
+    padding-right: min(3.2rem, 8.53vw);
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.barMenu:hover {
+    text-decoration: underline;
+}
+
+#titleBarBorder {
+    background: #663366;
+    margin-left: 0;
+    margin-right: 0;
+    height: min(.532rem, 1.42vw);
+}
+
+.brighterTitleBarBorder {
+    background: #884488;
+}
+
+#scrollBar {
+    background: #885588;
+    margin-right: 0;
+    height: min(.532rem, 1.42vw);
+    position: absolute;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.widget {
+    width: 100%;
+    display: table;
+}
+
+.widget img {
+    display: table-row;
+    max-width: 100%;
+}
+
+.widget_header {
+    text-decoration: underline;
+}
+
+.widget p:not(#schedule-table p) {
+	margin: min(1.75rem, 4.67vw);
+	display: inline-block;
+	font-family: Laksaman, Sans-Serif;
+	font-size: max(0.5rem, max(1vw, min(1.2rem, 3.46vw)));
+	color: white;
+}
+
+@media (min-aspect-ratio: 4/3) {
+    .widget p:not(#schedule-table p, .fullwidth > p, #scope > div > p) {
+	    width: calc(60% - max(3.5rem, 9.34vw));
+    }
+    .fullwidth > p {
+        width: calc(90% - max(3.5rem, 9.34vw));
+    }
+    .widget > img {
+        width: 40%;
+        top: 50%;
+        display: inline-block;
+    }
+
+    .right_img {
+	    float: right;
+    }
+
+    .left_img {
+	    float: left;
+    }
+
+    #scope > div > p {
+        width: 95%;
+    }
+}
+
+@media (max-aspect-ratio: 4/3) {
+    .widget p:not(#schedule-table p) {
+	    width: calc(100% - max(3.5rem, 9.34vw));
+        overflow-y: scroll;
+    }
+    .widget > img {
+	    width: 100%;
+        top: 50%;
+        display: inline-block;
+    }
+
+    #scope div {
+        width: 100%;
+    }
+}
+
+.widget p a {
+    cursor: pointer;
+    color: lightblue;
+}
+
+.widget p a:hover {
+    color: blue;
+}
+
