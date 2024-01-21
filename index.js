@@ -62,12 +62,12 @@ $(document).ready(function () {
     $("#dcl_more").click(function () {
         $("#misc_text").css("display", "none");
         $("#misc_alt_dcl").css("display", "");
-        document.getElementById("misc_img").setAttribute("src", "dcl_logo.png");
+        document.getElementById("misc_img").setAttribute("src", "https://RyanTorok.github.io/dcl_logo.png");
     });
     $("#dwg_more").click(function () {
         $("#misc_text").css("display", "none");
         $("#misc_alt_dwg").css("display", "");
-        document.getElementById("misc_img").setAttribute("src", "dwg.jpg");
+        document.getElementById("misc_img").setAttribute("src", "https://RyanTorok.github.io/dwg.jpg");
     });
     $("#cello_more").click(function () {
         $("#misc_text").css("display", "none");
@@ -76,13 +76,13 @@ $(document).ready(function () {
     $("#comp_more").click(function () {
         $("#misc_text").css("display", "none");
         $("#misc_alt_comp").css("display", "");
-        document.getElementById("misc_img").setAttribute("src", "cib_cropped.png");
+        document.getElementById("misc_img").setAttribute("src", "https://RyanTorok.github.io/cib_cropped.png");
     });
     $(".cib_more").click(function () {
         $("#misc_text").css("display", "none");
         $("#misc_alt_comp").css("display", "none");
         $("#misc_alt_cib").css("display", "");
-        document.getElementById("misc_img").setAttribute("src", "cib_cropped.png");
+        document.getElementById("misc_img").setAttribute("src", "https://RyanTorok.github.io/cib_cropped.png");
     });
     
 
@@ -95,7 +95,7 @@ $(document).ready(function () {
         $("#misc_text").css("display", "");
         // If we reset to the main view, don't remember we were in a section detail.
         $(".cib_sec_back").eq(0).click();
-        document.getElementById("misc_img").setAttribute("src", "cello.JPG")
+        document.getElementById("misc_img").setAttribute("src", "https://RyanTorok.github.io/cello.JPG")
     });
     
     $("#misc_alt_dcl").css("display", "none");
