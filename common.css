@@ -152,6 +152,8 @@ body {
     }
     .widget > img {
         width: 40%;
+        min-height: 100%;
+        overflow-x: scroll;
         top: 50%;
         display: inline-block;
     }
