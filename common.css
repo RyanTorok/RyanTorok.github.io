@@ -32,6 +32,7 @@ body {
 #titleBarWrapper {
 	position: fixed;
 	width: 100%;
+    overflow-x: scroll;
 }
 
 #titleBar {
@@ -41,7 +42,6 @@ body {
     margin-right: 0;
     padding-top: min(.269rem, 0.718vw);
     padding-bottom: min(1.2rem, 3.2vw);
-    overflow-x: scroll;
 }
 
 #title {
