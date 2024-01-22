@@ -78,7 +78,7 @@ $(document).ready(function () {
 
     // Prevent text overflowing widget
     $(".widget img").each(function() {
-        $(this).parents().eq(0).css("height", $(this).css("height"));
+        //$(this).parents().eq(0).css("height", $(this).css("height"));
     });
 
     init = false;
