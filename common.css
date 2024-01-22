@@ -139,7 +139,7 @@ body {
 
 @media (min-aspect-ratio: 3/4) {
     .widget td:not(.fullwidth > td) {
-	    width: calc(60% - max(3.5rem, 9.34vw));
+	    min-width: calc(60% - max(3.5rem, 9.34vw));
     }
     .fullwidth > td {
         width: calc(90% - max(3.5rem, 9.34vw));
@@ -185,12 +185,12 @@ body {
     }
 }
 
-.widget p a {
+.widget td a {
     cursor: pointer;
     color: lightblue;
 }
 
-.widget p a:hover {
+.widget td a:hover {
     color: blue;
 }
 
