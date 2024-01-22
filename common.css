@@ -130,7 +130,7 @@ body {
 
 .widget td {
 	font-family: Laksaman, Sans-Serif;
-	font-size: max(0.5rem, max(1vw, min(1.2rem, 3.46vw)));
+	font-size: max(0.5rem, min(1.1rem, 3vw));
 	color: white;
 }
 
