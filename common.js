@@ -1,15 +1,9 @@
 $(document).ready(function () {
-    let headerHeight = $("#titleBarWrapper").height();
-    let regions = $(".widget");
-    let heights = [];
-    for (let i = 0; i < regions.length; i++) {
-        heights.push(regions.eq(i).prop("offsetTop") - headerHeight);
-    }
-
     var scrollIndex = 0;
     var detectScroll = true;
     var autoView = true;
     var init = true;
+    let regions = $("#mainBody > table");
 
     var handleRegionChange = function (index, me) {
 	    detectScroll = false;
@@ -20,6 +14,7 @@ $(document).ready(function () {
             } else {
 		        regions[scrollIndex].scrollIntoView();
 		        //need to scroll enough so the header doesn't block us
+                let headerHeight = $("#titleBarWrapper").height();                
 		        scrollBy(0, headerHeight * -1);
             }
 	    } else {
@@ -45,7 +40,12 @@ $(document).ready(function () {
     });
 
 	$(window).scroll(function() {
-		if (detectScroll === false) {
+        let headerHeight = $("#titleBarWrapper").height();
+        let heights = [];
+        for (let i = 0; i < regions.length; i++) {
+            heights.push(regions.eq(i).prop("offsetTop") - headerHeight);
+        }
+ 		if (detectScroll === false) {
 			detectScroll = true;
 			return;
 		}

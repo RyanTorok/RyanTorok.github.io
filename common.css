@@ -25,10 +25,6 @@ body {
     width: 7px;
 }
 
-body {
-    overflow-x: scroll;
-}
-
 #titleBarWrapper {
 	position: fixed;
 	width: 100%;
@@ -120,8 +116,11 @@ body {
 .italic {
     font-style: italic;
 }
-
-.widget {
+    
+#mainBody > table {
+    display: table;
+    border-collapse: collapse;
+    border-spacing: 0;
     width: 100%;
 }
 
@@ -130,56 +129,60 @@ body {
 }
 
 .widget td {
-	margin: min(1.75rem, 4.67vw);
-	display: inline-block;
 	font-family: Laksaman, Sans-Serif;
 	font-size: max(0.5rem, max(1vw, min(1.2rem, 3.46vw)));
 	color: white;
 }
 
-@media (min-aspect-ratio: 3/4) {
-    .widget td:not(.fullwidth > td) {
-	    min-width: calc(60% - max(3.5rem, 9.34vw));
-    }
-    .fullwidth > td {
-        width: calc(90% - max(3.5rem, 9.34vw));
-    }
-    .widget > .img-wrap {
-        width: 40%;
-        top: 50%;
-        display: inline-block;
-        overflow: hidden;
-        position: relative;
-        overflow-x: hidden; 
-    }
-
-    .img-wrap > img {
-        position: absolute;
-        height: 100%;
-    }
+.img-wrap > img, .text-wrap > p, .text-wrap > div {
+	margin: min(1.75rem, 4.67vw);
+}
     
-    .right_img {
-	    float: right;
-    }
+.img-wrap {
+    display: table-cell;
+    vertical-align: middle;
+    width: 35vw;
+}
+    
+.text-wrap {
+    vertical-align: top;
+    text-align: left;
+    width: 55vw;
+}
+    
 
-    .left_img {
-	    float: left;
-    }
+.img-wrap > img {
+    width: 90%;
+    box-shadow: 50px 50px 113px #defeec inset;
+}
 
+.right_img {
+    text-align: right;
+}
+
+.widget > tr {
+    display: table-row;
+}
+
+.widget > tr > td {
+   display: table-cell;
+}
+
+@media (min-aspect-ratio: 3/4) {
     #scope > div > p {
         width: 95%;
     }
 }
 
 @media (max-aspect-ratio: 3/4) {
-    .widget td {
+    .widget > tr {
+        white-space: wrap;
+    }
+/*    .widget td {
 	    width: calc(100% - max(3.5rem, 9.34vw));
         overflow-y: scroll;
     }
-    .widget > .img-wrap {
-        display: none;
-    }
-
+*/
     #scope div {
         width: 100%;
     }

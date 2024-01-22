@@ -44,7 +44,6 @@
 
 .widget table {
     float: center;
-    margin: min(1.62rem, 4.32vw);
 }
 
 .widget table tr td {
@@ -58,7 +57,7 @@
     white-space: nowrap;
 }
 
-#scope td {
+#scope-block td {
     font-size: max(0.5rem, max(1vw, min(1.2rem, 3.46vw)));
     width: min(23.8rem, 63.54vw);
     display: inline-block;
@@ -119,9 +118,12 @@
     width: 60%;
 }
 
+#mainBody {
+    margin-top: min(8.4rem, 22.43vw);
+}
+
 #intro {
     background: #A41034;
-    margin-top: min(8.4rem, 22.43vw);
 }
 
 #about-me {
@@ -133,7 +135,6 @@
 }
 
 #scope-block {
-    width: 60%;
     display: inline-block;
 }
 
