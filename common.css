@@ -32,7 +32,6 @@ body {
 #titleBarWrapper {
 	position: fixed;
 	width: 100%;
-    overflow-x: scroll;
 }
 
 #titleBar {
@@ -42,6 +41,7 @@ body {
     margin-right: 0;
     padding-top: min(.269rem, 0.718vw);
     padding-bottom: min(1.2rem, 3.2vw);
+    overflow-x: scroll;
 }
 
 #title {
@@ -123,19 +123,13 @@ body {
 
 .widget {
     width: 100%;
-    display: table;
-}
-
-.widget img {
-    display: table-row;
-    max-width: 100%;
 }
 
 .widget_header {
     text-decoration: underline;
 }
 
-.widget p:not(#schedule-table p) {
+.widget td {
 	margin: min(1.75rem, 4.67vw);
 	display: inline-block;
 	font-family: Laksaman, Sans-Serif;
@@ -143,18 +137,25 @@ body {
 	color: white;
 }
 
-@media (min-aspect-ratio: 4/3) {
-    .widget p:not(#schedule-table p, .fullwidth > p, #scope > div > p) {
-	    width: calc(60vw - max(3.5rem, 9.34vw));
+@media (min-aspect-ratio: 3/4) {
+    .widget td:not(.fullwidth > td) {
+	    width: calc(60% - max(3.5rem, 9.34vw));
     }
-    .fullwidth > p {
-        width: calc(90vw - max(3.5rem, 9.34vw));
+    .fullwidth > td {
+        width: calc(90% - max(3.5rem, 9.34vw));
     }
-    .widget > img {
-        height: 100%;
+    .widget > .img-wrap {
+        width: 40%;
         top: 50%;
         display: inline-block;
         overflow: hidden;
+        position: relative;
+    }
+
+    .img-wrap > img {
+        position: absolute;
+        height: 100%;
+        overflow-x: hidden; 
     }
     
     .right_img {
@@ -170,12 +171,12 @@ body {
     }
 }
 
-@media (max-aspect-ratio: 4/3) {
-    .widget p:not(#schedule-table p) {
+@media (max-aspect-ratio: 3/4) {
+    .widget td {
 	    width: calc(100% - max(3.5rem, 9.34vw));
         overflow-y: scroll;
     }
-    .widget > img {
+    .widget > .img-wrap {
         display: none;
     }
 
