@@ -145,19 +145,18 @@ body {
 
 @media (min-aspect-ratio: 4/3) {
     .widget p:not(#schedule-table p, .fullwidth > p, #scope > div > p) {
-	    width: calc(60% - max(3.5rem, 9.34vw));
+	    width: calc(60vw - max(3.5rem, 9.34vw));
     }
     .fullwidth > p {
-        width: calc(90% - max(3.5rem, 9.34vw));
+        width: calc(90vw - max(3.5rem, 9.34vw));
     }
     .widget > img {
-        width: 40%;
-        min-height: 100%;
-        overflow-x: scroll;
+        height: 100%;
         top: 50%;
         display: inline-block;
+        overflow: hidden;
     }
-
+    
     .right_img {
 	    float: right;
     }
