@@ -72,7 +72,7 @@ $(document).ready(function () {
                 let row = a[2];
                 let session = schedule[col]["sessions"][row];
                 console.log(schedule);
-                window.location.href = "/tutor/registration?year=" + session["year"] +
+                window.location.href = "/ops/tutor/registration?year=" + session["year"] +
                     "&month=" + session["month"] +
                     "&date=" + session["date"] +
                     "&hour=" + session["hour"] +
@@ -105,7 +105,7 @@ $(document).ready(function () {
         let day = dayInView.getDate();
         xmlHttp.open(
             "GET",
-            "/tutor/get_schedule?year=" + year + "&month=" + month + "&day=" + day
+            "/ops/tutor/get_schedule?year=" + year + "&month=" + month + "&day=" + day
             , true
         );
         xmlHttp.send(null);
@@ -130,7 +130,7 @@ $(document).ready(function () {
         };
         xmlHttp.open(
             "GET",
-            "/tutor/alerts"
+            "/ops/tutor/alerts"
             , true
         );
         xmlHttp.send(null);

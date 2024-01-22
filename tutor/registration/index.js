@@ -366,7 +366,7 @@ $(document).ready(function() {
                 let jq_last = jq_row.children().eq(1).children().eq(1).prop("value");
                 xmlHttp.open(
                     "POST",
-                    "/tutor/update?" +
+                    "/ops/tutor/update?" +
                         "owner=" + owner +
                         "&first=" + encodeURI(jq_first) +
                         "&last=" + encodeURI(jq_last) +
@@ -423,7 +423,7 @@ $(document).ready(function() {
             // button(s), so we can't use hard-coded ids of the fields.  We do
             // this instead.
 
-            var req = "/tutor/schedule?";
+            var req = "/ops/tutor/schedule?";
             if (owner != null) {
                 req += "owner=" + owner + "&";
             }
@@ -487,7 +487,7 @@ $(document).ready(function() {
         };
         xmlHttp.open(
             "POST",
-            "/tutor/view?owner=" + owner,
+            "/ops/tutor/view?owner=" + owner,
             true
         );
         clearStatus();
@@ -559,7 +559,7 @@ $(document).ready(function() {
             };
             xmlHttp.open(
                 "POST",
-                "/tutor/cancel?owner=" + owner,
+                "/ops/tutor/cancel?owner=" + owner,
                 true
             );
             clearStatus();
