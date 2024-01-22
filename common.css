@@ -52,7 +52,6 @@ body {
     font-style: normal;
     margin-top: 0px;
     margin-bottom: 0px;
-    //padding-top: min(1rem, 2.67vw);
 
 }
 
@@ -176,9 +175,7 @@ body {
         overflow-y: scroll;
     }
     .widget > img {
-	    width: 100%;
-        top: 50%;
-        display: inline-block;
+        display: none;
     }
 
     #scope div {
