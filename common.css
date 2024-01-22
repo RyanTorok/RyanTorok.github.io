@@ -150,12 +150,12 @@ body {
         display: inline-block;
         overflow: hidden;
         position: relative;
+        overflow-x: hidden; 
     }
 
     .img-wrap > img {
         position: absolute;
         height: 100%;
-        overflow-x: hidden; 
     }
     
     .right_img {
