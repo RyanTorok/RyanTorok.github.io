@@ -46,7 +46,6 @@
 
 .widget table tr td {
 	font-family: Laksaman, Sans-Serif;
-	font-size: min(1.2rem, 3.2vw);
 	color: white;
     overflow-y: scroll;
 }
@@ -56,7 +55,6 @@
 }
 
 #scope-block td {
-    font-size: max(0.5rem, max(1vw, min(1.2rem, 3.46vw)));
     width: min(23.8rem, 63.54vw);
     display: inline-block;
 }
@@ -66,7 +64,6 @@
     width: min(16.05rem, 42.85vw);
     padding: min(0.3rem, .801vw);
     text-align: center;
-    font-size: max(0.5rem, min(1.2rem, 2.4vw));
 }
 
 .schedule_entry {
@@ -91,7 +88,6 @@
 }
 
 #weeks > div {
-    font-size: max(0.5rem, min(1.2rem, 2.3vw));
     text-align: center;
 }
 
