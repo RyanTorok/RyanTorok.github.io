@@ -296,7 +296,7 @@ $(document).ready(function () {
         let day = dayInView.getDate();
         xmlHttp.open(
             "GET",
-            "/ops/tutor/get_schedule_admin?admin_pw=" + encodeURI(admin_pw) + "&year=" + year + "&month=" + month + "&day=" + day
+            "/ops/tutor/get_schedule_admin?admin_pw=" + encodeURIComponent(admin_pw) + "&year=" + year + "&month=" + month + "&day=" + day
             , true
         );
         xmlHttp.send(null);
@@ -332,7 +332,7 @@ $(document).ready(function () {
         }
         xmlHttp.open(
             "POST",
-            "/ops/tutor/make_available?admin_pw=" + encodeURI(admin_pw) +
+            "/ops/tutor/make_available?admin_pw=" + encodeURIComponent(admin_pw) +
                 "&year=" + currentSession["year"] +
                 "&month=" + currentSession["month"] +
                 "&day=" + currentSession["date"] +
@@ -373,12 +373,12 @@ $(document).ready(function () {
         }
         xmlHttp.open(
             "POST",
-            "/ops/tutor/make_unavailable?admin_pw=" + encodeURI(admin_pw) +
+            "/ops/tutor/make_unavailable?admin_pw=" + encodeURIComponent(admin_pw) +
                 "&year=" + currentSession["year"] +
                 "&month=" + currentSession["month"] +
                 "&day=" + currentSession["date"] +
                 "&hour=" + currentSession["hour"] +
-                "&reason=" + encodeURI($("#reason-field").prop("value"))
+                "&reason=" + encodeURIComponent($("#reason-field").prop("value"))
             , true
         );
         xmlHttp.send(null);
@@ -416,7 +416,7 @@ $(document).ready(function () {
         }
         xmlHttp.open(
             "POST",
-            "/ops/tutor/mark_paid?admin_pw=" + encodeURI(admin_pw) +
+            "/ops/tutor/mark_paid?admin_pw=" + encodeURIComponent(admin_pw) +
                 "&year=" + currentSession["year"] +
                 "&month=" + currentSession["month"] +
                 "&day=" + currentSession["date"] +

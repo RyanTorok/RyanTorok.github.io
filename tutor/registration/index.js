@@ -368,13 +368,13 @@ $(document).ready(function() {
                     "POST",
                     "/ops/tutor/update?" +
                         "owner=" + owner +
-                        "&first=" + encodeURI(jq_first) +
-                        "&last=" + encodeURI(jq_last) +
+                        "&first=" + encodeURIComponent(jq_first) +
+                        "&last=" + encodeURIComponent(jq_last) +
                         "&remote=" + $("#remote").prop("checked") +
                         "&topic=" + $("#topic").prop("value") +
-                        "&other=" + encodeURI($("#other").prop("value")) +
-                        "&description=" + encodeURI($("#description").prop("value")) +
-                        "&languages=" + encodeURI($("#languages").prop("value")) +
+                        "&other=" + encodeURIComponent($("#other").prop("value")) +
+                        "&description=" + encodeURIComponent($("#description").prop("value")) +
+                        "&languages=" + encodeURIComponent($("#languages").prop("value")) +
                         // TODO currently unused features
                         "&zelle_id=0" +
                         "&payment_mode=0"
@@ -433,9 +433,9 @@ $(document).ready(function() {
                 let jq_last = jq_row.children().eq(1).children().eq(1).prop("value");
                 let jq_email = jq_row.children().eq(2).children().eq(1).prop("value");
             
-                req += "first=" + encodeURI(jq_first) +
-                    "&last=" + encodeURI(jq_last) +
-                    "&email=" + encodeURI(jq_email) + "&";
+                req += "first=" + encodeURIComponent(jq_first) +
+                    "&last=" + encodeURIComponent(jq_last) +
+                    "&email=" + encodeURIComponent(jq_email) + "&";
             }
             newRegXmlHttp.open(
                 "POST",
@@ -446,9 +446,9 @@ $(document).ready(function() {
                     "&hour=" + hour +
                     "&remote=" + $("#remote").prop("checked") +
                     "&topic=" + $("#topic").prop("value") +
-                    "&other=" + encodeURI($("#other").prop("value")) +
-                    "&description=" + encodeURI($("#description").prop("value")) +
-                    "&languages=" + encodeURI($("#languages").prop("value")) +
+                    "&other=" + encodeURIComponent($("#other").prop("value")) +
+                    "&description=" + encodeURIComponent($("#description").prop("value")) +
+                    "&languages=" + encodeURIComponent($("#languages").prop("value")) +
                     // TODO currently unused features
                     "&zelle_id=0" +
                     "&payment_mode=0"
