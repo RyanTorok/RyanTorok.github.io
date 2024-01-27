@@ -296,7 +296,7 @@ $(document).ready(function () {
         let day = dayInView.getDate();
         xmlHttp.open(
             "GET",
-            "/ops/tutor/get_schedule?admin_pw=" + encodeURI(admin_pw) + "&year=" + year + "&month=" + month + "&day=" + day
+            "/ops/tutor/get_schedule_admin?admin_pw=" + encodeURI(admin_pw) + "&year=" + year + "&month=" + month + "&day=" + day
             , true
         );
         xmlHttp.send(null);
