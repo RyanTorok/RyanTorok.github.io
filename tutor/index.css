@@ -41,7 +41,7 @@
 }
 
 .widget table {
-    float: center;
+    /*! float: center; */
 }
 
 .widget table tr td {
@@ -59,9 +59,21 @@
     display: inline-block;
 }
 
+#wrap-weeks, #wrap-schedule {
+    display: flex;
+    justify-content: center;
+    width: min(100% - 2rem, 120rem);
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+#schedule-table {
+  width: min(100%, 100rem);
+  table-layout: fixed;
+}
+
 #schedule-table tr td {
     border-radius: 4px;
-    width: min(16.05rem, 42.85vw);
     padding: min(0.3rem, .801vw);
     text-align: center;
 }
@@ -82,9 +94,9 @@
 }
 
 #weeks {
-    width: calc(100% - min(1.75rem, 4.67vw););
     display: flex;
     justify-content: space-around;
+    width: min(100%, 100rem);
 }
 
 #weeks > div {
