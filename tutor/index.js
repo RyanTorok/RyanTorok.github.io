@@ -72,7 +72,7 @@ $(document).ready(function () {
                 let row = a[2];
                 let session = schedule[col]["sessions"][row];
                 console.log(schedule);
-                window.location.href = "/ops/tutor/registration?year=" + session["year"] +
+                window.location.href = "/tutor/registration?year=" + session["year"] +
                     "&month=" + session["month"] +
                     "&date=" + session["date"] +
                     "&hour=" + session["hour"] +
