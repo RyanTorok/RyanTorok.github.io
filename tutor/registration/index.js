@@ -640,7 +640,7 @@ $(document).ready(function() {
                     let constSessions = sessions;
                     let constS = s;
                     let constDay = day;
-                    if (session[s]["status"] == "vacant") {
+                    if (sessions[s]["status"] == "vacant") {
                         entry.onclick = function() {
                             lastDay = constDay;
                             lastSessionIndex = constS;
