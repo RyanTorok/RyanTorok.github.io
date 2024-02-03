@@ -44,7 +44,7 @@ $(document).ready(function() {
         $("#session-info").css("display", "none");
     } else {
         $("#login").css("display", "none");
-        //$("#reschedule").css("display", "none");
+        $("#reschedule").css("display", "none");
         $("#cancel").css("display", "none");
         year = urlParams.get("year");
         month = urlParams.get("month");
