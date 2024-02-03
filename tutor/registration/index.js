@@ -36,12 +36,15 @@ locations.set("Saturday", "Boston College, 245 Beacon Street");
 $(document).ready(function() {
     $("#js-warning").css("display", "none");
     $(".loader").css("display", "none");
+    $("#reschedule-pane").css("display", "none");
+    $("#reschedule-details").css("display", "none");
     let existing = urlParams.get("existing");
     var year, month, date, hour, day, minute;
     if (existing) {
         $("#session-info").css("display", "none");
     } else {
         $("#login").css("display", "none");
+        //$("#reschedule").css("display", "none");
         $("#cancel").css("display", "none");
         year = urlParams.get("year");
         month = urlParams.get("month");
@@ -49,7 +52,7 @@ $(document).ready(function() {
         hour = urlParams.get("hour");
         day = urlParams.get("day");
         minute = urlParams.get("minute");
-        populateDate(year, month, date, hour, day, minute);
+        populateDate("datetime", year, month, date, hour, day, minute);
     }
 
     // Disambiguates whether the first row of name/email fields is an already
@@ -115,7 +118,7 @@ $(document).ready(function() {
 
     addStudentRow(false);
 
-    function populateDate(year, month, date, hour, day, minute) {
+    function populateDate(id, year, month, date, hour, day, minute) {
         if (minute.length < 2) {
             minute = "0" + minute;
         }
@@ -135,7 +138,7 @@ $(document).ready(function() {
         let short_title = year + "-" + String(month).padStart(2, '0') + "-" +
             String(date).padStart(2, '0') + " at " + time;
         document.title = short_title;
-        document.getElementById("datetime").textContent = long_title;
+        document.getElementById(id).textContent = long_title;
         document.getElementById("in-person-label").textContent = "In Person (" +
             locations.get(day) + ")";
     }
@@ -162,6 +165,7 @@ $(document).ready(function() {
             hour = obj["hour"];
             minute = obj["minute"];
             populateDate(
+                "datetime",
                 obj["year"],
                 obj["month"],
                 obj["date"],
@@ -517,6 +521,19 @@ $(document).ready(function() {
         });
 
     $("#ac-submit").click(submitAC);
+
+    $("#reschedule").click(function() {
+        // Swap sesssion-info with reschedule-pane
+        $("#session-info").css("display", "none");
+        $("#reschedule-pane").css("display", "");
+        refreshSchedule(0);
+    });
+
+    $("#reschedule-back").click(function() {
+        // Swap sesssion-info with reschedule-pane
+        $("#session-info").css("display", "");
+        $("#reschedule-pane").css("display", "none");
+    });
     
     $("#cancel").click(function () {
         if (!canSubmit) {
@@ -566,5 +583,156 @@ $(document).ready(function() {
             $("#loader").css("display", "");
             xmlHttp.send(null);
         }
-    });                        
+    });
+
+    function showRescheduleDetails(session) {
+        populateDate(
+            "reschedule-datetime",
+            session["year"],
+            session["month"],
+            session["date"],
+            session["hour"],
+            week[session["day"]],
+            session["minute"],
+        );
+        $("#reschedule-details").css("display", "");
+        if (alreadyScheduled > 1) {
+            $("#cascade-select").css("display", "");
+        } else {
+            $("#cascade-select").css("display", "none");
+        }
+    }
+
+    var dayInView = new Date();
+    var schedule;
+    function updateScheduleUI(json, dateOffset) {
+        let schedule_obj = JSON.parse(json);
+        if (schedule_obj["success"]) {
+            $(".schedule-row").remove();
+            schedule = schedule_obj["schedule"];
+            var rows = [];
+            for (var day = 0; day < 7; day++) {
+                let daySchedule = schedule[day];
+                // Set the day in the header
+                $(".day").eq(day).text(daySchedule["day"]);
+                var sessions = daySchedule["sessions"];
+                for (var s = 0; s < sessions.length; s++) {
+                    // If we don't have a row for this session yet, create it.
+                    if (s >= rows.length) {
+                        let row = document.createElement("tr");
+                        row.className = "schedule-row";
+                        row.setAttribute("id", "session-" + s);
+                        document.getElementById("schedule-table-body").appendChild(row);
+                        rows[s] = row;
+                    }
+                    // Insert 7 dummy td entries that can be populated
+                    var entry = document.createElement("td");
+                    entry.setAttribute("id", "session-" + day + "-" + s);
+                    if (day == 0 || day == 6) {
+                        entry.className = "schedule-entry weekend " + sessions[s]["status"];
+                    } else {
+                        entry.className = "schedule-entry weekday " + sessions[s]["status"];
+                    }
+                    entry.textContent = sessions[s]["time"].trim()
+                    // Redeclare as new variables so we use the values of
+                    // `sessions`, `day`, and `s` at the time for each entry.
+                    let constSessions = sessions;
+                    let constS = s;
+                    let constDay = day;
+                    entry.onclick = function() {
+                        lastDay = constDay;
+                        lastSessionIndex = constS;
+                        showRescheduleDetails(constSessions[constS]);
+                    };
+                    for (var i = rows[s].children.length; i < day; i++) {
+                        // Dummy td entries as padding
+                        var pad = document.createElement("td");
+                        pad.setAttribute("id", "session-" + i + "-" + s);
+                        pad.className = "schedule-pad";
+                        rows[s].appendChild(pad);
+                    }
+                    rows[s].appendChild(entry);
+                }
+            }
+            $("#login").css("display", "none");
+            $("#calendar").css("display", "");
+        } else {
+            // Reset the day to what we had
+            dayInView.setDate(dayInView.getDate() - dateOffset);
+            return false;
+        }
+        return true;
+    }
+
+    function refreshSchedule(dateOffset) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+            if (xmlHttp.readyState == 4) {
+                if (xmlHttp.status == 200) {
+                    updateScheduleUI(xmlHttp.responseText, dateOffset);
+                } else {
+                    dayInView.setDate(dayInView.getDate() - dateOffset);
+                }
+            }
+        };
+        // Initialize schedule with the right week.
+        // The server is smart enough to find the start of the week
+        // whenever we supply any date within the week.
+        let year = dayInView.getFullYear();
+        // Server expects 1-indexed (calendar) month
+        let month = dayInView.getMonth() + 1;
+        let day = dayInView.getDate();
+        xmlHttp.open(
+            "GET",
+            "/ops/tutor/get_schedule?&year=" + year + "&month=" + month + "&day=" + day
+            , true
+        );
+        xmlHttp.send(null);
+    }
+
+    $("#select-time").click(function() {
+        var cascade;
+        // Check if the "cascade" selection pane is visible. If it is,
+        // one of the options must be selected or we abort.
+        if ($("#cascade-select").css("display") == "none") {
+            // Only one registrant. The cascade flag is unconditionally false.
+            cascade = false;
+        } else {
+            if ($("#cascade-on").prop("checked")) {
+                cascade = true;
+            } else if ($("#cascade-off").prop("checked")) {
+                cascade = false;
+            } else {
+                status(
+                    "Please select whether you want to reschedule your entire group or only yourself.",
+                    "red"
+                );
+                return;
+            }
+        }
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() { 
+            if (xmlHttp.readyState == 4) {
+                if (xmlHttp.status == 200) {
+                    status(
+                        "Reschedule successful. Click the button at the top to go back to your registration.",
+                        "lightgreen",
+                    );
+                } else {
+                    status("Reschedule failed.", "red");
+                }
+            }
+        };
+        xmlHttp.open(
+            "POST",
+            "/ops/tutor/reschedule?owner=" + owner +
+                "&to_year=" + year +
+                "&to_month=" + month +
+                "&to_day=" + day +
+                "&to_hour=" + hour +
+                "&cascade=" + cascade
+            , true
+        );
+        xmlHttp.send(null);        
+    });
 });

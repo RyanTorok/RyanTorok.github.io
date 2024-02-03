@@ -59,67 +59,6 @@
     display: inline-block;
 }
 
-#wrap-weeks, #wrap-schedule {
-    display: flex;
-    justify-content: center;
-    width: min(100% - 2rem, 120rem);
-    margin-left: 1rem;
-    margin-right: 1rem;
-}
-
-#schedule-table {
-  width: min(100%, 100rem);
-  table-layout: fixed;
-}
-
-#schedule-table tr td {
-    border-radius: 4px;
-    padding: min(0.3rem, .801vw);
-    text-align: center;
-}
-
-.schedule_entry {
-    width: 95%;
-    height: 95%;
-    margin: 5px;
-    font-size: min(3.56rem, 9.51vw);
-}
-
-.vacant, .occupied, .unavailable, .elapsed {
-    border: 2px solid black;
-}
-
-.schedule-pad {
-    border: 2px solid transparent;
-}
-
-#weeks {
-    display: flex;
-    justify-content: space-around;
-    width: min(100%, 100rem);
-}
-
-#weeks > div {
-    text-align: center;
-}
-
-#weeks > div, #book-button {
-    border: 1px solid white;
-    cursor: pointer;
-    border-radius: 4px;
-    padding: 0.3rem 0.5rem 0.3rem 0.5rem;
-    color: white;
-    font-family: Laksaman, Sans-Serif;
-}
-
-#weeks div:hover {
-    background: #404040;
-}
-
-#book-button:hover {
-    background: #ffffff60;
-}
-
 .logo img {
     width: 60%;
 }
