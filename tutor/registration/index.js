@@ -597,7 +597,7 @@ $(document).ready(function() {
             session["minute"],
         );
         $("#reschedule-details").css("display", "");
-        if (alreadyScheduled > 1) {
+        if (alreadyRegistered > 1) {
             $("#cascade-select").css("display", "");
         } else {
             $("#cascade-select").css("display", "none");
