@@ -432,11 +432,11 @@ $(document).ready(function() {
                 req += "owner=" + owner + "&";
             }
             for(var i = alreadyRegistered; i < n_rows; i++)  {
-                let jq_row = $("#credentials-block div").eq(i);
+                let jq_row = $("#credentials-block > div").eq(i);
                 let jq_first = jq_row.children().eq(0).children().eq(1).prop("value");
                 let jq_last = jq_row.children().eq(1).children().eq(1).prop("value");
                 let jq_email = jq_row.children().eq(2).children().eq(1).prop("value");
-            
+
                 req += "first=" + encodeURIComponent(jq_first) +
                     "&last=" + encodeURIComponent(jq_last) +
                     "&email=" + encodeURIComponent(jq_email) + "&";
