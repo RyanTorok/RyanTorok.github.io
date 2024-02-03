@@ -708,7 +708,7 @@ $(document).ready(function() {
     });
 
     $("#refresh").click(function () {
-        refreshSchedule(0);
+         refreshSchedule(0);
     });
 
 
@@ -757,6 +757,7 @@ $(document).ready(function() {
                     if (!cascade) {
                         $("#credentials-block > div:not(:first)").remove();
                     }
+                    refreshSchedule(0);
                 } else {
                     status("Reschedule failed.", "red");
                 }
