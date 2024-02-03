@@ -526,6 +526,7 @@ $(document).ready(function() {
         // Swap sesssion-info with reschedule-pane
         $("#session-info").css("display", "none");
         $("#reschedule-pane").css("display", "");
+        $("#rescheudle-details").css("display", "none");
         refreshSchedule(0);
     });
 
@@ -639,11 +640,13 @@ $(document).ready(function() {
                     let constSessions = sessions;
                     let constS = s;
                     let constDay = day;
-                    entry.onclick = function() {
-                        lastDay = constDay;
-                        lastSessionIndex = constS;
-                        showRescheduleDetails(constSessions[constS]);
-                    };
+                    if (session[s]["status"] == "vacant") {
+                        entry.onclick = function() {
+                            lastDay = constDay;
+                            lastSessionIndex = constS;
+                            showRescheduleDetails(constSessions[constS]);
+                        };
+                    }
                     for (var i = rows[s].children.length; i < day; i++) {
                         // Dummy td entries as padding
                         var pad = document.createElement("td");
