@@ -184,8 +184,11 @@ input {
     margin-bottom: 2em;
 }
 
-#schedule-table tr td:not(.vacant) {
+#schedule-table tr td {
     font-family: Laksaman, Sans-Serif;
-    color: white;
     overflow-y: scroll;
+}
+
+#schedule-table tr td:not(.vacant) {    
+    color: white;
 }
