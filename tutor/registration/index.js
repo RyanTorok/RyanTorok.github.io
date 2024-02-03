@@ -525,6 +525,7 @@ $(document).ready(function() {
     $("#reschedule").click(function() {
         // Swap sesssion-info with reschedule-pane
         $("#session-info").css("display", "none");
+        clearStatus();
         $("#reschedule-pane").css("display", "");
         $("#rescheudle-details").css("display", "none");
         refreshSchedule(0);
@@ -532,8 +533,9 @@ $(document).ready(function() {
 
     $("#reschedule-back").click(function() {
         // Swap sesssion-info with reschedule-pane
-        $("#session-info").css("display", "");
         $("#reschedule-pane").css("display", "none");
+        clearStatus();
+        $("#session-info").css("display", "");
     });
     
     $("#cancel").click(function () {
@@ -587,6 +589,7 @@ $(document).ready(function() {
     });
 
     function showRescheduleDetails(session) {
+        currentSession = session;
         populateDate(
             "reschedule-datetime",
             session["year"],
@@ -606,6 +609,7 @@ $(document).ready(function() {
 
     var dayInView = new Date();
     var schedule;
+    var currentSession = null;
     function updateScheduleUI(json, dateOffset) {
         let schedule_obj = JSON.parse(json);
         if (schedule_obj["success"]) {
@@ -716,6 +720,7 @@ $(document).ready(function() {
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() { 
             if (xmlHttp.readyState == 4) {
+                $("#reschedule-loader").css("display", "none");
                 if (xmlHttp.status == 200) {
                     status(
                         "Reschedule successful. Click the button at the top to go back to your registration.",
@@ -729,13 +734,15 @@ $(document).ready(function() {
         xmlHttp.open(
             "POST",
             "/ops/tutor/reschedule?owner=" + owner +
-                "&to_year=" + year +
-                "&to_month=" + month +
-                "&to_day=" + day +
-                "&to_hour=" + hour +
+                "&to_year=" + currentSession["year"] +
+                "&to_month=" + currentSession["month"] +
+                "&to_day=" + currentSession["date"] +
+                "&to_hour=" + currentSession["hour"] +
                 "&cascade=" + cascade
             , true
         );
+        clearStatus();
+        $("#reschedule-loader").css("display", "");
         xmlHttp.send(null);        
     });
 });
