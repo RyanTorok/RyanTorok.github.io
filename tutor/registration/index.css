@@ -12,6 +12,11 @@
   display: inline-block;
 }
 
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 7px;
+}
+
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -63,7 +68,7 @@ body {
     margin: 0px;
 }
 
-p, label, select{
+p:not(#schedule-table p), label, select{
     font-family: Laksaman, Sans-Serif;
 	font-size: 1.2rem;
 	color: white;
