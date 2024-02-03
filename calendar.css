@@ -58,3 +58,40 @@
 #book-button:hover {
     background: #ffffff60;
 }
+
+.occupied {
+    background: #cc7c7c;
+    color: white;
+}
+
+.vacant.weekend {
+    background: #9ee5b0;
+    color: black;
+}
+
+.vacant:hover {
+    cursor: pointer;
+}
+
+.vacant.weekend:hover {
+    background: #55c671;
+}
+
+.vacant.weekday {
+    background: #86b9f0;
+    color: black;
+}
+
+.vacant.weekday:hover {
+    background: #4e91d8;
+}
+
+.elapsed {
+    background: #666666;
+    color: white;
+}
+
+.unavailable {
+    background: #525252;
+    color: white;
+}
