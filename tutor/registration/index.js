@@ -589,6 +589,7 @@ $(document).ready(function() {
     });
 
     function showRescheduleDetails(session) {
+        selectedTime = true;
         currentSession = session;
         populateDate(
             "reschedule-datetime",
@@ -711,8 +712,14 @@ $(document).ready(function() {
          refreshSchedule(0);
     });
 
-
+    var canSelectTime = true;
+    var selectedTime = false;
     $("#select-time").click(function() {
+        if (!canSelectTime || !selectedTime) {
+            return;
+        }
+        canSelectTime = false;
+        selectedTime = false;
         var cascade;
         // Check if the "cascade" selection pane is visible. If it is,
         // one of the options must be selected or we abort.
@@ -761,6 +768,7 @@ $(document).ready(function() {
                 } else {
                     status("Reschedule failed.", "red");
                 }
+                canSelectTime = true;
             }
         };
         xmlHttp.open(
