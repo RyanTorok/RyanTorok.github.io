@@ -697,6 +697,21 @@ $(document).ready(function() {
         xmlHttp.send(null);
     }
 
+    $("#forward").click(function () {
+        dayInView.setDate(dayInView.getDate() + 7);
+        refreshSchedule(7);
+    });
+
+    $("#backward").click(function () {
+        dayInView.setDate(dayInView.getDate() - 7);
+        refreshSchedule(-7);
+    });
+
+    $("#refresh").click(function () {
+        refreshSchedule(0);
+    });
+
+
     $("#select-time").click(function() {
         var cascade;
         // Check if the "cascade" selection pane is visible. If it is,
