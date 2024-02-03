@@ -743,7 +743,7 @@ $(document).ready(function() {
                     );
                     // Set date on main panel to new date
                     populateDate(
-                        "reschedule-datetime",
+                        "datetime",
                         currentSession["year"],
                         currentSession["month"],
                         currentSession["date"],
