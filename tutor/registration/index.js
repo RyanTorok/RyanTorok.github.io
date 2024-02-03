@@ -726,6 +726,22 @@ $(document).ready(function() {
                         "Reschedule successful. Click the button at the top to go back to your registration.",
                         "lightgreen",
                     );
+                    // Set date on main panel to new date
+                    populateDate(
+                        "reschedule-datetime",
+                        currentSession["year"],
+                        currentSession["month"],
+                        currentSession["date"],
+                        currentSession["hour"],
+                        week[currentSession["day"]],
+                        currentSession["minute"],
+                    );
+                    // If the registrant who rescheduled was part of a group but
+                    // only rescheduled themself, remove their previous group
+                    // members from the list
+                    if (!cascade) {
+                        $("#credentials-block > div:not(:first)").remove();
+                    }
                 } else {
                     status("Reschedule failed.", "red");
                 }
