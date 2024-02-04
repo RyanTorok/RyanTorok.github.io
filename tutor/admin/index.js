@@ -69,9 +69,11 @@ $(document).ready(function () {
     var admin_pw = "";
     var currentStatus = "";
     var currentSession = null;
+    var rescheduleSession = null;
     var lastSessionIndex = -1;
     var lastDay = -1;
     var autoSetSession = false;
+    var rescheduleMode = false;
 
     function showDetails(session) {
         currentSession = session;
@@ -106,8 +108,10 @@ $(document).ready(function () {
             let details = JSON.parse(session["details"]);
             if (details.length > 0) {
                 $("#occupied-info").css("display", "");
+                $("#reschedule-toggle").css("display", "");
             } else {
                 $("#occupied-info").css("display", "none");
+                $("#reschedule-toggle").css("display", "none");
             }
             let registrants = document.getElementById("registrants");
             // Clear registrant list
@@ -200,6 +204,20 @@ $(document).ready(function () {
         }
         $("#details").css("display", "");
     }
+
+    function selectNewTime(session) {
+        rescheduleSession = session;
+        status("Press Confirm to select new time.", "cyan");
+        selectedNewTime = true;
+        populateDate(
+            session["year"],
+            session["month"],
+            session["date"],
+            session["hour"],
+            week[session["day"]],
+            session["minute"],
+        );
+    }
     
     var dayInView = new Date();
     var schedule;
@@ -240,7 +258,11 @@ $(document).ready(function () {
                     entry.onclick = function() {
                         lastDay = constDay;
                         lastSessionIndex = constS;
-                        showDetails(constSessions[constS]);
+                        if (rescheduleMode) {
+                            selectNewTime(constSessions[constS]);
+                        } else {
+                            showDetails(constSessions[constS]);
+                        }
                     };
                     for (var i = rows[s].children.length; i < day; i++) {
                         // Dummy td entries as padding
@@ -471,6 +493,84 @@ $(document).ready(function () {
             }
         }
     });
+    function setRescheduleMode(mode) {
+        if (mode) {
+            selectedNewTime = false;
+            $("#reschedule-toggle").text("Cancel ↺");
+            $("#reschedule-confirm").css("display", "");
+            status("Select a new time and press Confirm.", "cyan");
+        } else {
+            $("#reschedule-toggle").text("Reschedule Session");
+            $("#reschedule-confirm").css("display", "none");
+            autoSetSession = true;
+            populateDate(
+                currentSession["year"],
+                currentSession["month"],
+                currentSession["date"],
+                currentSession["hour"],
+                week[currentSession["day"]],
+                currentSession["minute"],
+            );
+            clearStatus();
+        }
+        rescheduleMode = mode;
+    }
+    $("#reschedule-toggle").click(function() {
+        setRescheduleMode(!rescheduleMode);
+    });
+    $("#reschedule-confirm").click(function() {
+        if (!selectedNewTime) {
+            status("Select a new time before confirming reschedule.", "red");
+        } else {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.onreadystatechange = function() {
+                if (xmlHttp.readyState == 4) {
+                    if (xmlHttp.status == 200) {
+                        let outcome = JSON.parse(xmlHttp.responseText);
+                        if (outcome["success"]) {
+                            autoSetSession = true;
+                            currentSesssion = rescheduleSession;
+                            refreshSchedule(0, false, true);
+                            setRescheduleMode(false);
+                            status("Reschedule successful.", "lightgreen");
+                        } else {
+                            status(
+                                "Reschedule failed: " +
+                                    outcome["reason"],
+                                "red"
+                            );
+                        }
+                    } else {
+                        status(
+                            "Reschedule failed: HTTP status code " +
+                                xmlHttp.status,
+                            "red"
+                        );
+                    }
+                }
+            };
+            if (currentSession == null) {
+                return false;
+            }
+            xmlHttp.open(
+                "POST",
+                "/ops/tutor/reschedule_admin?admin_pw=" + encodeURIComponent(admin_pw) +
+                    "&from_year=" + currentSession["year"] +
+                    "&from_month=" + currentSession["month"] +
+                    "&from_day=" + currentSession["date"] +
+                    "&from_hour=" + currentSession["hour"] +
+                    "&to_year=" + rescheduleSession["year"] +
+                    "&to_month=" + rescheduleSession["month"] +
+                    "&to_day=" + rescheduleSession["date"] +
+                    "&to_hour=" + rescheduleSession["hour"]
+                    , true
+            );
+            xmlHttp.send(null);
+            return true;
+            
+        }
+    });
     $("#calendar").css("display", "none");
     $("#details").css("display", "none");
+    $("#reschedule-confirm").css("display", "none");
 });
