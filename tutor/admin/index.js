@@ -332,7 +332,7 @@ $(document).ready(function () {
                     let outcome = JSON.parse(xmlHttp.responseText);
                     if (outcome["success"]) {
                         refreshSchedule(0, false, true);
-                        status("Successfully marked slot available.");
+                        status("Successfully marked slot available.", "lightgreen");
                     } else {
                         status(
                             "Failed to mark slot available: "
@@ -373,7 +373,7 @@ $(document).ready(function () {
                     let outcome = JSON.parse(xmlHttp.responseText);
                     if (outcome["success"]) {
                         refreshSchedule(0, false, true);
-                        status("Successfully marked slot unavailable.");
+                        status("Successfully marked slot unavailable.", "lightgreen");
                     } else {
                         status(
                             "Failed to mark slot unavailable: "
