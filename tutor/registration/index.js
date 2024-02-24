@@ -24,15 +24,6 @@ const week = [
     "Saturday",
 ];
 
-const locations = new Map();
-locations.set("Sunday", "Boston University, Center for Computing and Data Sciences");
-locations.set("Monday", "Harvard University, Science and Engineering Complex");
-locations.set("Tuesday", "MIT, Stata Center");
-locations.set("Wednesday", "Northeastern University, West Village H");
-locations.set("Thursday", "Harard University, Science and Engineering Complex");
-locations.set("Friday", "MIT, Stata Center");
-locations.set("Saturday", "Boston College, 245 Beacon Street");
-
 $(document).ready(function() {
     $("#js-warning").css("display", "none");
     $(".loader").css("display", "none");
@@ -139,8 +130,6 @@ $(document).ready(function() {
             String(date).padStart(2, '0') + " at " + time;
         document.title = short_title;
         document.getElementById(id).textContent = long_title;
-        document.getElementById("in-person-label").textContent = "In Person (" +
-            locations.get(day) + ")";
     }
 
     function setConfirmed(success, index) {
@@ -177,8 +166,7 @@ $(document).ready(function() {
             document.getElementById("last-0").value = obj["last"];
             document.getElementById("email-0").value = obj["email"];
             $("#email-0").prop("disabled", true);
-            document.getElementById("remote").checked = obj["remote"];
-            document.getElementById("in-person").checked = !obj["remote"];
+            document.getElementById("select-location").value = obj["location"];
             document.getElementById("topic").value=obj["topic"];
             document.getElementById("other").value = obj["other"];
             document.getElementById("description").value = obj["description"];
@@ -298,10 +286,9 @@ $(document).ready(function() {
         if (!success) {
             return;
         }
-        if (!$("#in-person").prop("checked") && !$("#remote").prop("checked")) {
-            status("Please indicate whether you are scheduling an in-person \
-                    or remote session.", "red");
-            $("#in-person").focus();
+        if ($("#select-location").prop("value") == 0) {
+            status("Please choose a meeting location.", "red");
+            $("#select-location").focus();
             return;
         }
         if ($("#topic").prop("value") == 0) {
@@ -374,7 +361,7 @@ $(document).ready(function() {
                         "owner=" + owner +
                         "&first=" + encodeURIComponent(jq_first) +
                         "&last=" + encodeURIComponent(jq_last) +
-                        "&remote=" + $("#remote").prop("checked") +
+                        "&location=" + $("#select-location").prop("value") +
                         "&topic=" + $("#topic").prop("value") +
                         "&other=" + encodeURIComponent($("#other").prop("value")) +
                         "&description=" + encodeURIComponent($("#description").prop("value")) +
@@ -448,7 +435,7 @@ $(document).ready(function() {
                     "&month=" + month +
                     "&day=" + date +
                     "&hour=" + hour +
-                    "&remote=" + $("#remote").prop("checked") +
+                    "&location=" + $("#select-location").prop("value") +
                     "&topic=" + $("#topic").prop("value") +
                     "&other=" + encodeURIComponent($("#other").prop("value")) +
                     "&description=" + encodeURIComponent($("#description").prop("value")) +

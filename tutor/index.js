@@ -54,6 +54,9 @@ $(document).ready(function () {
                         }
                     }
                     entry.textContent = sessions[s]["time"].trim()
+                    if (session[s]["location"].length > 0) {
+                        entry.textContent += " – " + sessions[s]["location"];
+                    }
                     for (var i = rows[s].children.length; i < day; i++) {
                         // Dummy td entries as padding
                         var pad = document.createElement("td");
